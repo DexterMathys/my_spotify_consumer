@@ -53,6 +53,9 @@
             "./config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "symfony/browser-kit": {
+        "version": "v4.4.7"
+    },
     "symfony/cache": {
         "version": "v4.4.7"
     },
@@ -75,10 +78,16 @@
             "./config/bootstrap.php"
         ]
     },
+    "symfony/css-selector": {
+        "version": "v4.4.7"
+    },
     "symfony/debug": {
         "version": "v4.4.7"
     },
     "symfony/dependency-injection": {
+        "version": "v4.4.7"
+    },
+    "symfony/dom-crawler": {
         "version": "v4.4.7"
     },
     "symfony/dotenv": {
@@ -142,6 +151,21 @@
     },
     "symfony/mime": {
         "version": "v4.4.7"
+    },
+    "symfony/phpunit-bridge": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "6d0e35f749d5f4bfe1f011762875275cd3f9874f"
+        },
+        "files": [
+            "./.env.test",
+            "./bin/phpunit",
+            "./phpunit.xml.dist",
+            "./tests/bootstrap.php"
+        ]
     },
     "symfony/polyfill-intl-idn": {
         "version": "v1.15.0"
