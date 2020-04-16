@@ -4,6 +4,15 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    # Base URI for obtain the app credentials
+    base_uri_auth: 'https://accounts.spotify.com/'
+    # Client ID for Spotify
+    client_id: 'your-client-id'
+    # Client Secret for Spotify
+    client_secret: 'your-client-secret'
+    # Base URI for Spotify API
+    base_uri_api: 'https://api.spotify.com/'
+
 
 services:
     # default configuration for services in *this* file
