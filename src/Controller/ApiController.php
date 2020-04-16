@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -14,7 +14,7 @@ use GuzzleHttp\Client;
  * Controller to work with Spotify API
  * @Route("/api/v1")
  */
-class ApiController extends Controller {
+class ApiController extends AbstractController {
     
     /**
       * @Route("/albums", name="albums")
@@ -22,9 +22,9 @@ class ApiController extends Controller {
       */
     public function albums() {
 
-        $base_uri_auth = $this->container->getParameter('base_uri_auth');
-        $client_id = $this->container->getParameter('client_id');
-        $client_secret = $this->container->getParameter('client_secret');
+        $base_uri_auth = $this->getParameter('base_uri_auth');
+        $client_id = $this->getParameter('client_id');
+        $client_secret = $this->getParameter('client_secret');
 
         $clientAuth = new Client(['base_uri' => $base_uri_auth]);
         $response = $clientAuth->request('POST', 'api/token', [
@@ -43,7 +43,7 @@ class ApiController extends Controller {
         $result = array();
         
         if (trim($artist) !== '') {
-            $base_uri_api = $this->container->getParameter('base_uri_api');
+            $base_uri_api = $this->getParameter('base_uri_api');
             $offset = 0;
             $limit = 50;
             $maxOffset = 2000 - $limit; // Maximum offset (including limit): 2,000.
